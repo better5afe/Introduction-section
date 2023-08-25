@@ -1,0 +1,27 @@
+@use '_colors' as colors;
+
+@mixin flexbox($display, $alignItems, $justifyContent, $direction) {
+	display: $display;
+	align-items: $alignItems;
+	justify-content: $justifyContent;
+	flex-direction: $direction;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-size: 1.6rem;
+	font-family: 'Epilogue', sans-serif;
+}
+
+@import '_mediaqueries';
