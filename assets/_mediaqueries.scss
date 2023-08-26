@@ -25,6 +25,10 @@
 			&-item {
 				position: relative;
 				margin: 0 2.5em 0 0;
+
+				&:last-of-type {
+					margin: 0 2.5em 0 0;
+				}
 			}
 
 			.parent-li {
@@ -60,7 +64,9 @@
 		&__login {
 			position: absolute;
 			right: 1.5em;
+			top: 50%;
 			flex-direction: row;
+			transform: translateY(-50%);
 
 			a {
 				margin: 0 0.5em;

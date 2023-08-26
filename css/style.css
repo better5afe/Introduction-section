@@ -65,6 +65,9 @@ body {
   cursor: pointer;
   transition: color 0.3s;
 }
+.nav__list-item:last-of-type {
+  margin-top: 1.3em;
+}
 .nav__list-item .dropdown-arrow {
   margin-left: 0.8em;
 }
@@ -82,6 +85,7 @@ body {
 }
 .nav__list--nested {
   height: 0;
+  margin-top: 0.5em;
   color: #696969;
   transform: scaleY(0);
   transform-origin: top;
@@ -92,7 +96,7 @@ body {
   margin: 0.8em 0 0.8em 1.2em;
   transition: color 0.3s;
 }
-.nav__list--nested-item:first-of-type, .nav__list--nested-item:last-of-type {
+.nav__list--nested-item:first-of-type {
   margin: 0 0 0 1.2em;
 }
 .nav__list--nested-item:hover, .nav__list--nested-item:focus {
@@ -133,11 +137,14 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  display: none;
   background: rgba(20, 20, 20, 0.6117647059);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: -1;
 }
 .nav .shadow-active {
-  display: block;
+  opacity: 1;
+  z-index: 3;
 }
 
 .main__hero-image--mobile {
@@ -205,6 +212,9 @@ body {
     position: relative;
     margin: 0 2.5em 0 0;
   }
+  .nav__list-item:last-of-type {
+    margin: 0 2.5em 0 0;
+  }
   .nav__list .parent-li {
     position: relative;
   }
@@ -231,7 +241,9 @@ body {
   .nav__login {
     position: absolute;
     right: 1.5em;
+    top: 50%;
     flex-direction: row;
+    transform: translateY(-50%);
   }
   .nav__login a {
     margin: 0 0.5em;
