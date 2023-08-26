@@ -11,6 +11,130 @@ html {
 }
 
 body {
-  font-size: 1.6rem;
+  padding: 1em;
+  background: #fafafa;
+  font-size: 1.4rem;
   font-family: "Epilogue", sans-serif;
+  line-height: 1.5;
+  color: #141414;
+}
+
+.nav__title a {
+  text-decoration: none;
+  color: #141414;
+}
+.nav__btns {
+  position: fixed;
+  top: 1em;
+  right: 1em;
+  z-index: 10;
+}
+.nav__btns button {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.nav__btns--open, .nav__btns--close {
+  display: none;
+}
+.nav__btns .active {
+  display: block;
+}
+.nav__list, .nav__list--nested {
+  list-style-type: none;
+}
+.nav__list li, .nav__list--nested li {
+  color: #696969;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.nav__list li svg path, .nav__list--nested li svg path {
+  transition: stroke 0.3s;
+}
+.nav__list li .dropdown-arrow, .nav__list--nested li .dropdown-arrow {
+  margin-left: 0.8em;
+}
+.nav__list li .rotated, .nav__list--nested li .rotated {
+  transform: rotate(180deg);
+}
+.nav__list li:hover,
+.nav__list li:focus, .nav__list--nested li:hover,
+.nav__list--nested li:focus {
+  color: #141414;
+}
+.nav__list li:hover svg path,
+.nav__list li:focus svg path, .nav__list--nested li:hover svg path,
+.nav__list--nested li:focus svg path {
+  stroke: #141414;
+}
+.nav__list {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 60vw;
+  padding: 4em 1em;
+  background: #fafafa;
+  transform: translateX(200%);
+  transition: transform 0.5s ease-in-out;
+  z-index: 5;
+}
+.nav__list li {
+  margin: 0.8em 0;
+}
+.nav__list--nested {
+  height: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  opacity: 0;
+  transition: height 0.15s, transform 0.3s, opacity 0.3s;
+}
+.nav__list--nested li {
+  margin: 0.8em 0;
+}
+.nav__list--nested li:first-of-type, .nav__list--nested li:last-of-type {
+  margin: 0;
+}
+.nav__login {
+  display: flex;
+  flex-direction: column;
+}
+.nav__login a {
+  width: 100%;
+  margin: 0.2em 0;
+  padding: 0.5em;
+  text-align: center;
+  text-decoration: none;
+  color: #696969;
+  transition: color 0.3s;
+}
+.nav__login a:hover, .nav__login a:focus {
+  color: #141414;
+}
+.nav__login--register {
+  border: 1px solid #141414;
+  border-radius: 10px;
+}
+.nav .nav-active {
+  transform: translateX(0);
+}
+.nav .active-list {
+  height: 100%;
+  margin: 0.8em 0 0.8em 1.2em;
+  transform: scaleY(1);
+  opacity: 1;
+}
+.nav .shadow {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(20, 20, 20, 0.6117647059);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+.nav .shadow-active {
+  opacity: 1;
 }/*# sourceMappingURL=style.css.map */

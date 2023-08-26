@@ -20,8 +20,164 @@ html {
 }
 
 body {
-	font-size: 1.6rem;
+	padding: 1em;
+	background: colors.$almost-white;
+	font-size: 1.4rem;
 	font-family: 'Epilogue', sans-serif;
+	line-height: 1.5;
+	color: colors.$almost-black;
+}
+
+.nav {
+	&__title {
+		a {
+			text-decoration: none;
+			color: colors.$almost-black;
+		}
+	}
+
+	&__btns {
+		position: fixed;
+		top: 1em;
+		right: 1em;
+		z-index: 10;
+
+		button {
+			background: transparent;
+			border: none;
+			outline: none;
+			cursor: pointer;
+		}
+
+		&--open,
+		&--close {
+			display: none;
+		}
+
+		.active {
+			display: block;
+		}
+	}
+
+	&__list,
+	&__list--nested {
+		list-style-type: none;
+
+		li {
+			color: colors.$medium-gray;
+			cursor: pointer;
+			transition: color 0.3s;
+
+			svg {
+				path {
+					transition: stroke 0.3s;
+				}
+			}
+
+			.dropdown-arrow {
+				margin-left: 0.8em;
+			}
+			.rotated {
+				transform: rotate(180deg);
+			}
+		}
+
+		li:hover,
+		li:focus {
+			color: colors.$almost-black;
+
+			svg {
+				path {
+					stroke: colors.$almost-black;
+				}
+			}
+		}
+	}
+
+	&__list {
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		width: 60vw;
+		padding: 4em 1em;
+		background: colors.$almost-white;
+		transform: translateX(200%);
+		transition: transform 0.5s ease-in-out;
+		z-index: 5;
+
+		li {
+			margin: 0.8em 0;
+		}
+	}
+
+	&__list--nested {
+		height: 0;
+		transform: scaleY(0);
+		transform-origin: top;
+		opacity: 0;
+		transition: height 0.15s, transform 0.3s, opacity 0.3s;
+
+		li {
+			margin: 0.8em 0;
+
+			&:first-of-type,
+			&:last-of-type {
+				margin: 0;
+			}
+		}
+	}
+
+	&__login {
+		display: flex;
+		flex-direction: column;
+
+		a {
+			width: 100%;
+			margin: 0.2em 0;
+			padding: 0.5em;
+			text-align: center;
+			text-decoration: none;
+			color: colors.$medium-gray;
+			transition: color 0.3s;
+
+			&:hover,
+			&:focus {
+				color: colors.$almost-black;
+			}
+		}
+
+		&--register {
+			border: 1px solid colors.$almost-black;
+			border-radius: 10px;
+		}
+	}
+
+	.nav-active {
+		transform: translateX(0);
+	}
+
+	.active-list {
+		height: 100%;
+		margin: 0.8em 0 0.8em 1.2em;
+		transform: scaleY(1);
+		opacity: 1;
+	}
+
+	.shadow {
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: colors.$shadow;
+		opacity: 0;
+		transition: opacity 0.5s ease-in-out;
+	}
+
+	.shadow-active {
+		opacity: 1;
+	}
 }
 
 @import '_mediaqueries';
