@@ -71,6 +71,20 @@
 			display: none;
 		}
 	}
+
+	.main {
+		&__hero {
+			&-image {
+				&--mobile {
+					display: none;
+				}
+
+				&--desktop {
+					display: block;
+				}
+			}
+		}
+	}
 }
 
 @media (min-width: 1400px) {
