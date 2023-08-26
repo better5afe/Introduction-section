@@ -2,7 +2,7 @@ var openBtn = document.querySelector('.nav__btns--open');
 var closeBtn = document.querySelector('.nav__btns--close');
 var navList = document.querySelector('.nav__list');
 var parentListItems = document.querySelectorAll('.parent-li');
-var nestedListItems = document.querySelectorAll('.nested-li');
+var nestedListItems = document.querySelectorAll('.nav__list--nested-item');
 var dropdownArrows = document.querySelectorAll('.dropdown-arrow');
 var nestedLists = document.querySelectorAll('.nav__list--nested');
 var shadow = document.querySelector('.shadow');
@@ -29,7 +29,7 @@ parentListItems.forEach(function (parentListItem) {
         });
         nestedLists.forEach(function (nestedList) {
             if (nestedList.classList.contains(parentId)) {
-                nestedList.classList.toggle('active-list');
+                nestedList.classList.toggle('list-active');
                 return;
             }
         });

@@ -2,7 +2,7 @@ const openBtn = document.querySelector('.nav__btns--open');
 const closeBtn = document.querySelector('.nav__btns--close');
 const navList = document.querySelector('.nav__list');
 const parentListItems = document.querySelectorAll('.parent-li');
-const nestedListItems = document.querySelectorAll('.nested-li');
+const nestedListItems = document.querySelectorAll('.nav__list--nested-item');
 const dropdownArrows = document.querySelectorAll('.dropdown-arrow');
 const nestedLists = document.querySelectorAll('.nav__list--nested');
 const shadow = document.querySelector('.shadow');
@@ -34,7 +34,7 @@ parentListItems.forEach((parentListItem) => {
 
 		nestedLists.forEach((nestedList) => {
 			if (nestedList.classList.contains(parentId)) {
-				nestedList.classList.toggle('active-list');
+				nestedList.classList.toggle('list-active');
 				return;
 			}
 		});

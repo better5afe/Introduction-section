@@ -44,30 +44,6 @@ body {
 .nav__list, .nav__list--nested {
   list-style-type: none;
 }
-.nav__list li, .nav__list--nested li {
-  color: #696969;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-.nav__list li svg path, .nav__list--nested li svg path {
-  transition: stroke 0.3s;
-}
-.nav__list li .dropdown-arrow, .nav__list--nested li .dropdown-arrow {
-  margin-left: 0.8em;
-}
-.nav__list li .rotated, .nav__list--nested li .rotated {
-  transform: rotate(180deg);
-}
-.nav__list li:hover,
-.nav__list li:focus, .nav__list--nested li:hover,
-.nav__list--nested li:focus {
-  color: #141414;
-}
-.nav__list li:hover svg path,
-.nav__list li:focus svg path, .nav__list--nested li:hover svg path,
-.nav__list--nested li:focus svg path {
-  stroke: #141414;
-}
 .nav__list {
   position: fixed;
   top: 0;
@@ -80,21 +56,44 @@ body {
   transition: transform 0.5s ease-in-out;
   z-index: 5;
 }
-.nav__list li {
+.nav__list-item {
   margin: 0.8em 0;
+  color: #696969;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.nav__list-item .dropdown-arrow {
+  margin-left: 0.8em;
+}
+.nav__list-item .dropdown-arrow path {
+  transition: stroke 0.3s;
+}
+.nav__list-item:hover, .nav__list-item:focus {
+  color: #141414;
+}
+.nav__list-item:hover > .dropdown-arrow > path, .nav__list-item:focus > .dropdown-arrow > path {
+  stroke: #141414;
+}
+.nav__list-item .rotated {
+  transform: rotate(180deg);
 }
 .nav__list--nested {
   height: 0;
+  color: #696969;
   transform: scaleY(0);
   transform-origin: top;
   opacity: 0;
   transition: height 0.15s, transform 0.3s, opacity 0.3s;
 }
-.nav__list--nested li {
-  margin: 0.8em 0;
+.nav__list--nested-item {
+  margin: 0.8em 0 0.8em 1.2em;
+  transition: color 0.3s;
 }
-.nav__list--nested li:first-of-type, .nav__list--nested li:last-of-type {
-  margin: 0;
+.nav__list--nested-item:first-of-type, .nav__list--nested-item:last-of-type {
+  margin: 0 0 0 1.2em;
+}
+.nav__list--nested-item:hover, .nav__list--nested-item:focus {
+  color: #141414;
 }
 .nav__login {
   display: flex;
@@ -119,9 +118,9 @@ body {
 .nav .nav-active {
   transform: translateX(0);
 }
-.nav .active-list {
-  height: 100%;
-  margin: 0.8em 0 0.8em 1.2em;
+.nav .list-active {
+  height: -moz-fit-content;
+  height: fit-content;
   transform: scaleY(1);
   opacity: 1;
 }
@@ -137,4 +136,71 @@ body {
 }
 .nav .shadow-active {
   opacity: 1;
+}
+
+@media (min-width: 992px) {
+  .nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+    max-width: 1400px;
+  }
+  .nav__title a {
+    margin-right: 2em;
+  }
+  .nav__btns {
+    display: none;
+  }
+  .nav__list {
+    position: static;
+    display: flex;
+    padding: 0;
+    transform: none;
+  }
+  .nav__list-item {
+    position: relative;
+    margin: 0 2.5em 0 0;
+  }
+  .nav__list .parent-li {
+    position: relative;
+  }
+  .nav__list--nested {
+    position: absolute;
+    right: 0;
+    width: 150px;
+    padding: 1em 1.5em;
+    margin-top: 0.5em;
+    background: #fafafa;
+    border-radius: 1rem;
+    box-shadow: 1px 3px 25px -6px #696969;
+    font-size: 1.4rem;
+  }
+  .nav__list--nested-item {
+    margin: 0.5em 0;
+  }
+  .nav__list--nested-item:first-of-type, .nav__list--nested-item:last-of-type {
+    margin: 0;
+  }
+  .nav .company {
+    left: 0;
+  }
+  .nav__login {
+    position: absolute;
+    right: 0;
+    flex-direction: row;
+  }
+  .nav__login a {
+    margin: 0 0.5em;
+    padding: 0.3em 1.3em;
+  }
+  .nav .shadow {
+    display: none;
+  }
+}
+@media (min-width: 1400px) {
+  .wrapper--nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }/*# sourceMappingURL=style.css.map */

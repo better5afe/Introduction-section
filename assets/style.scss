@@ -62,36 +62,6 @@ body {
 	&__list,
 	&__list--nested {
 		list-style-type: none;
-
-		li {
-			color: colors.$medium-gray;
-			cursor: pointer;
-			transition: color 0.3s;
-
-			svg {
-				path {
-					transition: stroke 0.3s;
-				}
-			}
-
-			.dropdown-arrow {
-				margin-left: 0.8em;
-			}
-			.rotated {
-				transform: rotate(180deg);
-			}
-		}
-
-		li:hover,
-		li:focus {
-			color: colors.$almost-black;
-
-			svg {
-				path {
-					stroke: colors.$almost-black;
-				}
-			}
-		}
 	}
 
 	&__list {
@@ -106,24 +76,56 @@ body {
 		transition: transform 0.5s ease-in-out;
 		z-index: 5;
 
-		li {
+		&-item {
 			margin: 0.8em 0;
+			color: colors.$medium-gray;
+			cursor: pointer;
+			transition: color 0.3s;
+
+			.dropdown-arrow {
+				margin-left: 0.8em;
+
+				path {
+					transition: stroke 0.3s;
+				}
+			}
+
+			&:hover,
+			&:focus {
+				color: colors.$almost-black;
+			}
+
+			&:hover > .dropdown-arrow > path,
+			&:focus > .dropdown-arrow > path {
+				stroke: colors.$almost-black;
+			}
+
+			.rotated {
+				transform: rotate(180deg);
+			}
 		}
 	}
 
 	&__list--nested {
 		height: 0;
+		color: colors.$medium-gray;
 		transform: scaleY(0);
 		transform-origin: top;
 		opacity: 0;
 		transition: height 0.15s, transform 0.3s, opacity 0.3s;
 
-		li {
-			margin: 0.8em 0;
+		&-item {
+			margin: 0.8em 0 0.8em 1.2em;
+			transition: color 0.3s;
 
 			&:first-of-type,
 			&:last-of-type {
-				margin: 0;
+				margin: 0 0 0 1.2em;
+			}
+
+			&:hover,
+			&:focus {
+				color: colors.$almost-black;
 			}
 		}
 	}
@@ -157,9 +159,8 @@ body {
 		transform: translateX(0);
 	}
 
-	.active-list {
-		height: 100%;
-		margin: 0.8em 0 0.8em 1.2em;
+	.list-active {
+		height: fit-content;
 		transform: scaleY(1);
 		opacity: 1;
 	}
